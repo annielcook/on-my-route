@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= Edit
+  form(name="input", method="post")
+    div.input
+      span.label Name 
+      input(type="text", name="name")
+    div.input
+      span.label Address
+      input(type="text", name="address")
+    div.actions
+      input(type="submit", value="Submit")
