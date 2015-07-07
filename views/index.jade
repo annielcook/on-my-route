@@ -2,8 +2,16 @@ extends layout
 
 block content
   h1= title
-  p Enter a destination below
+  p Start destination
   form(name="add-estimation", method="post")
+    div.input
+        span.label Name 
+        input(type="text", name="name")
+    div.input
+        span.label Address
+        input(type="text", name="address")
+    br
+    p End destination
     div.input
         span.label Name 
         input(type="text", name="name")

@@ -7,13 +7,24 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'What is on my route?' });
 });
 
-router.post('/', function (req, res) {
-    var newAddress = new models.Address({name: req.body.name, address: req.body.address});
-    newAddress.save(function(err, page) {
-    	if(err) return next(err);
-	    res.redirect('/'+page.name);
-	  })
-    
+
+
+router.post('/', function (req, res, next) {
+  var start, end
+  models.Address.create({name: req.body.name[0], address: req.body.address[0]})
+  .then(function(one){
+    start = one
+    return models.Address.create({name: req.body.name[1], address: req.body.address[1]})
+  })
+  .then(function (two){
+    end = two
+    return models.Trip.create({start: start._id, end: end._id})
+  })
+  .then(function(trip){
+    res.send(trip)
+  })
+    .then(null, next);
+      
 });
 
 router.get('/:name', function(req, res, next) {

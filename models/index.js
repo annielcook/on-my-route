@@ -15,8 +15,13 @@ var addressSchema = new mongoose.Schema({
   // status:   Number
 });
 
-var Address = mongoose.model('Address', addressSchema);
+var tripSchema = new mongoose.Schema({
+	start: {type: mongoose.Schema.Types.ObjectId, ref: 'Address'},
+	end: {type: mongoose.Schema.Types.ObjectId, ref: 'Address'},
+})
+
 
 module.exports = {
-  Address: Address
+  Address: mongoose.model('Address', addressSchema),
+  Trip: mongoose.model('Trip', tripSchema)
 };
