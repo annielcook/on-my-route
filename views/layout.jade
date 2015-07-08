@@ -1,7 +1,13 @@
+
 doctype html
 html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    <!-- Latest compiled and minified CSS -->
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+
+    include ./mixins.jade
   body
+    +nav("On My Route", "dropdown_menu", "inverse")
     block content
