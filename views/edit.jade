@@ -1,13 +1,21 @@
 extends layout
 
 block content
+  br
+  br
+  br
   h1= Edit
-  form(name="input", method="post")
-    div.input
-      span.label Name 
-      input(type="text", name="name")
-    div.input
-      span.label Address
-      input(type="text", name="address")
-    div.actions
-      input(type="submit", value="Submit")
+  form.form-horizontal(name="input", method="post")
+    div.panel-heading
+      h3.panel-title Edit location
+    div.panel-body
+      .control-group
+        label.control-label(for="name") Name
+        .controls
+          input#name.input-medium(type="text", name="name", placeholder="Name of location")
+      // Text input
+      .control-group
+        label.control-label(for="address") Address
+        .controls
+          input#address.input-medium(type="text", name="address", placeholder="Address of location")
+      button(type="submit").btn.btn-default Submit

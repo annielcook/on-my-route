@@ -6,22 +6,24 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongodb connection error:'));
 
 var addressSchema = new mongoose.Schema({
-  name: String,
-  address: String
-    // url_name: String,
-  // owner_id: String,
-  // content:  String,
-  // date:     { type: Date, default: Date.now },
-  // status:   Number
+    name: String,
+    address: String
 });
 
 var tripSchema = new mongoose.Schema({
-	start: {type: mongoose.Schema.Types.ObjectId, ref: 'Address'},
-	end: {type: mongoose.Schema.Types.ObjectId, ref: 'Address'},
+    start: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Address'
+    },
+    end: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Address'
+    },
+    route_name: String
 })
 
 
 module.exports = {
-  Address: mongoose.model('Address', addressSchema),
-  Trip: mongoose.model('Trip', tripSchema)
+    Address: mongoose.model('Address', addressSchema),
+    Trip: mongoose.model('Trip', tripSchema)
 };

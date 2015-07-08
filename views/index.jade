@@ -3,9 +3,8 @@ extends layout
 block content
 
   div.entry.col-lg-3
-    form.form-horizontal
+    form.form-horizontal(name="location-form", method="post")
       // Form Name
-      legend Enter Route
       div.panel.panel-info
         div.panel-heading
           h3.panel-title Start location
@@ -32,6 +31,11 @@ block content
             label.control-label(for="address") Address
             .controls
               input#address.input-medium(type="text", name="address", placeholder="Address of location")
+           div.panel-body
+          .control-group
+            label.control-label(for="name") Route name
+            .controls
+              input#name.input-medium(type="text", name="name", placeholder="Name this route")
           button(type="submit").btn.btn-default Submit
   div.map.col-lg-5
   div.found.col-lg-4

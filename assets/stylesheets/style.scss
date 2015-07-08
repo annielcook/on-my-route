@@ -1,11 +1,23 @@
-// body {
-//     background-color: #91A1BE;
-// }
+body {
+    margin-top: 50px;
+    background-color: #566C94;
+    display: table;
+    width: 100%;
+    margin-left: -15px;
+}
 
-// .entry {
-//     background: #566C94;
-// }
+.entry {
+    padding-top: 15px;
+    background: #91A1BE;
+    height: 100%;
+    display: table-cell;
+    float: none;
+    margin-left: 0;
+}
 
-// form {
-    //     margin: 15px;
-    // }
+.found {
+    background: #91A1BE;
+    height: 100%;
+    display: table-cell;
+    float: none;
+}
