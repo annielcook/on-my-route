@@ -6,8 +6,8 @@ block content
     form.form-horizontal(name="location-form", method="post")
       // Form Name
       div.panel.panel-info
-        +address_form("Start location")
-        +address_form("End destination")
+        +address_form("Start location", "Name of start location", "Address of start location", "", "")
+        +address_form("End destination", "Name of end location", "Address of end location", "","")
         div.panel-body
           .control-group
             label.control-label(for="name") Route name
