@@ -33,3 +33,22 @@ mixin nav_header
         block
  
 //- End navbar mixins
+
+//- Address form mixins
+mixin address_form(title)
+    div.panel-heading
+        h3.panel-title= title
+
+    div.panel-body
+          // Text input
+          .control-group
+            label.control-label(for="name") Name
+            .controls
+              input#name.input-medium(type="text", name="name", placeholder="Name of location")
+          // Text input
+          .control-group
+            label.control-label(for="address") Address
+            .controls
+              input#address.input-medium(type="text", name="address", placeholder="Address of location")
+
+//-End address form mixins

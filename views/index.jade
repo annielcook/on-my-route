@@ -6,32 +6,9 @@ block content
     form.form-horizontal(name="location-form", method="post")
       // Form Name
       div.panel.panel-info
-        div.panel-heading
-          h3.panel-title Start location
+        +address_form("Start location")
+        +address_form("End destination")
         div.panel-body
-          // Text input
-          .control-group
-            label.control-label(for="name") Name
-            .controls
-              input#name.input-medium(type="text", name="name", placeholder="Name of location")
-          // Text input
-          .control-group
-            label.control-label(for="address") Address
-            .controls
-              input#address.input-medium(type="text", name="address", placeholder="Address of location")
-        div.panel-heading
-          h3.panel-title End destination
-        div.panel-body
-          .control-group
-            label.control-label(for="name") Name
-            .controls
-              input#name.input-medium(type="text", name="name", placeholder="Name of location")
-          // Text input
-          .control-group
-            label.control-label(for="address") Address
-            .controls
-              input#address.input-medium(type="text", name="address", placeholder="Address of location")
-           div.panel-body
           .control-group
             label.control-label(for="name") Route name
             .controls
