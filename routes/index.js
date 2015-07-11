@@ -56,7 +56,7 @@ router.get('/:name', function(req, res, next) {
   })
 })
 
-router.put('/:name/edit', function(req, res, next) {
+router.get('/:name/edit', function(req, res, next) {
   //look at page name
   //find the page in the database
   //render a view with that object
@@ -73,40 +73,29 @@ router.put('/:name/edit', function(req, res, next) {
 })
 
 
-//how do routes work -- 
-
-//when i clicke edit do a get request
-
-//when i click save to a put request
-
-//edit button should be on name page
-//redirects to page where name and address are in inputs with a button under saying save 
-//clicking save on edit page makes a put request to server
-//  find old documetn and update it and redirect back home
-router.put('/:name/edit', function(req, res) {
+router.post('/:name/edit', function(req, res, next) {
+  console.log('post called')
   models.Address.findOne({
     name: req.params.name
   }, function(err, address) {
-    if (err) {
-      return res.send(err);
+    if (!address) return next()
+
+
+
+    //I'm overwriting properites on address that exist in req.body
+    //namely title and body
+    for (var key in req.body) {
+      address[key] = req.body[key]
     }
-    res.render('edit', {
-      name: page.name,
-      address: page.address
-    });
 
-    // save the movie
-    address.save(function(err) {
-      if (err) {
-        return res.send(err);
-      }
-
-      res.json({
-        message: 'Address updated!'
-      });
-    });
+    address.save(function(err, address) {
+      console.log(err)
+      if (err) return next(err)
+      console.log('this is address before redirect', address)
+      res.redirect('/')
+    })
   });
-});
+})
 
 //one address or trip page should have an edit button
 
